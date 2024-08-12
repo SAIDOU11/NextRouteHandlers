@@ -12,6 +12,8 @@ export async function POST(request: Request) {
     text: textComment.text,
   };
 
+  comments.push(newTextComment);
+
   return new Response(JSON.stringify(newTextComment), {
     headers: { "Content-Type": "application/json" },
     status: 201,
