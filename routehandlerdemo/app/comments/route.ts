@@ -5,15 +5,15 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  const comment = await request.json();
+  const textComment = await request.json();
 
-  const newComment = {
-    id: comments.length + 1, // comments[] lenght + 1 .. comments array from data
-    text: comment.text, // comment from the request body
+  const newTextComment = {
+    id: comments.length + 1,
+    text: textComment.text,
   };
-  comments.push(newComment);
-  return new Response(JSON.stringify(newComment), {
-    headers: { "Content-Type ": "application/json" },
+
+  return new Response(JSON.stringify(newTextComment), {
+    headers: { "Content-Type": "application/json" },
     status: 201,
   });
 }
